@@ -1,115 +1,69 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// frontend/pages/index.tsx
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
-    >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/pages/index.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="min-h-screen bg-white text-gray-900 px-6 py-12">
+      {/* Hero Section */}
+      <section className="max-w-4xl mx-auto text-center space-y-6">
+        <h1 className="text-4xl font-bold">
+          24시간 대신 일하는<br />
+          <span className="text-blue-600">가게 GPT 직원</span>
+        </h1>
+        <p className="text-lg text-gray-600">
+          예약, 응대, 공지까지 자동으로 처리합니다.<br />
+          쉬는 날에도, 바쁜 시간에도 고객 대응 걱정 없이.
+        </p>
+
+        <div className="flex justify-center gap-4 pt-4">
+          <Link href="/demo">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl shadow">
+              💬 무료 체험하기
+            </button>
+          </Link>
+          <Link href="/register">
+            <button className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium px-6 py-3 rounded-xl">
+              신청하러 가기
+            </button>
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* Feature Preview */}
+      <section className="mt-16 max-w-3xl mx-auto text-center space-y-4">
+        <h2 className="text-2xl font-semibold">💡 어떤 기능이 있나요?</h2>
+        <ul className="text-gray-700 space-y-2">
+          <li>✅ 영업시간/예약 가능 여부 자동 응답</li>
+          <li>✅ 고객 질문에 시트 기반 GPT가 대답</li>
+          <li>✅ 공지사항 자동 전달</li>
+          <li>✅ 셋업 완료 시 전용 링크 발급</li>
+        </ul>
+      </section>
+
+      {/* Social Proof (가짜 후기) */}
+      <section className="mt-20 max-w-2xl mx-auto text-center space-y-6">
+        <h3 className="text-xl font-semibold">🧡 사용 중인 사장님들</h3>
+        <blockquote className="text-gray-600 italic">
+          “장사 준비로 정신없었는데, 예약 응대를 AI가 해줘서 진짜 살 것 같아요.”
+          <br />– 카페 사장님 이OO
+        </blockquote>
+        <blockquote className="text-gray-600 italic">
+          “고객들이 알아서 질문하고 챗봇이 설명해주니, 카톡 대응 줄었어요.”
+          <br />– 미용실 대표 김OO
+        </blockquote>
+      </section>
+
+      {/* Final CTA */}
+      <section className="mt-16 text-center">
+        <p className="text-lg mb-4 font-medium">
+          시작은 지금. GPT 상담사, 내 가게에 들여놓기
+        </p>
+        <Link href="/register">
+          <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-8 py-4 rounded-xl shadow-lg">
+            ✍️ 신청하러 가기
+          </button>
+        </Link>
+      </section>
+    </main>
   );
 }
