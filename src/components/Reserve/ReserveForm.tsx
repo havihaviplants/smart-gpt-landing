@@ -73,7 +73,7 @@ export default function ReserveForm() {
           name={input.name}
           type={input.type}
           placeholder={input.placeholder}
-          value={(formData as any)[input.name]}
+          value={formData[input.name as keyof typeof formData]}
           onChange={handleChange}
           className="w-full border rounded-lg px-4 py-2"
           required
